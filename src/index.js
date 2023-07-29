@@ -1,6 +1,15 @@
-const { FileMetaInfo } = require("storage-db/src");
+const { FileMetaInfo, createDbInstance } = require("storage-db/src");
 
 module.exports.handler = async (event) => {
+  const instance = await createDbInstance();
+
+  try {
+    await instance.authenticate();
+    console.log("Connection has been established successfully.");
+  } catch (error) {
+    console.error("Unable to connect to the database:", error);
+  }
+
   const record = event.Records[0];
   const eventName = record.eventName;
   const bucketName = record.s3.bucket.name;
