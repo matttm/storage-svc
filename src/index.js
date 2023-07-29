@@ -4,7 +4,7 @@ module.exports.handler = async (event) => {
   const record = event.Records[0];
   const eventName = record.eventName;
   const bucketName = record.s3.bucket.name;
-  const obj = record.object;
+  const obj = record.s3.object;
   //
   // The key will begin with the userId followed by a semicolon
   //
