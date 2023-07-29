@@ -1,6 +1,6 @@
 const { FileMetaInfo } = require("storage-db/src");
 
-export const handler = async (event) => {
+module.exports.handler = async (event) => {
   const record = event.Records[0];
   const eventName = record.eventName;
   const bucketName = record.s3.bucket.name;
