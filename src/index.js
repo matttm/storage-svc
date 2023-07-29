@@ -1,7 +1,7 @@
-const { FileMetaInfo, createDbInstance } = require("storage-db/src");
+const db = require("storage-db/src");
 
 module.exports.handler = async (event) => {
-  const instance = await createDbInstance();
+  const instance = await db["createDbInstance"]();
 
   try {
     await instance.authenticate();
@@ -24,7 +24,7 @@ module.exports.handler = async (event) => {
   switch (eventName) {
     case "ObjectCreated:Put":
       console.log("Object stored in S3");
-      await FileMetaInfo.create({
+      await db["FileMetaInfo"].create({
         fileTypeCd: 1,
         userId,
         fileSizeKb: obj.size,
