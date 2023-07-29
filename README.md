@@ -16,7 +16,7 @@ Development: Active
 
 ## Authors
 
-- matttm : Matt Maloney : matttmaloney@gmail.com
+- matttm : Matt Maloney : matttmaloney@gmail.com --
 
 ## Issues
 
